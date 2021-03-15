@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://127.0.0.1:8765/");
+var ws = new WebSocket("wss://127.0.0.1:8765/");
 
 var accepting_card_input = false;
 
