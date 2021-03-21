@@ -93,8 +93,8 @@ async def get_card_info():
                     student_id = student_id.group(0)
                     # Check to make sure that a last name exists
                     if len(student_name.split(" ")) >= 2:
-                        print("Name: {}".format(student_name))
-                        print("ID: {}".format(student_id))
+                        print(f"Name: {student_name}")
+                        print(f"ID: {student_id}")
                         # Clean up by destroying windows and flush buffer
                         # cv2.destroyAllWindows()
                         frame[:] = (0, 255, 0)
@@ -106,7 +106,7 @@ async def get_card_info():
             # cv2.imshow("retarget", retarget_img)
 
             text_location = cv2.boundingRect(big_contour)[0:2]
-            reading_aid_msg = "Bring Card Closer ... {}%".format(round(frame_occupation_percentage / frame_occupation_threshold, 2) * 100)
+            reading_aid_msg = f"Bring Card Closer ... {round(frame_occupation_percentage / frame_occupation_threshold, 2) * 100}%"
             if frame_occupation_percentage >= frame_occupation_threshold:
                 reading_aid_msg = "Keep Still ..."
                 cv2.drawContours(frame,[box],0,(0,255,0),3)
